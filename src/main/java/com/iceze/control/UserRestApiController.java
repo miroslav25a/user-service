@@ -43,11 +43,11 @@ public class UserRestApiController {
 		Optional<List<User>> optionalUsers = this.userService.findAllUsers();
 		
 		if(!optionalUsers.isPresent() || optionalUsers.get().isEmpty()) {
-			return new ResponseEntity<List<User>>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
 		List<User> users = optionalUsers.get();
-		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+		return new ResponseEntity<>(users, HttpStatus.OK);
 	}
 	
 	@ApiOperation(value = "Find a user", notes = "Retrieving a single user", response = List.class)

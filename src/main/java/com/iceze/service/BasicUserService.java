@@ -11,9 +11,12 @@ import com.iceze.model.User;
 
 @Service("userService")
 public class BasicUserService implements UserService {
-	
-	@Autowired
 	private UserDao userDao;
+
+	@Autowired
+	public BasicUserService(final UserDao userDao) {
+		this.userDao = userDao;
+	}
 
 	@Override
 	public Optional<List<User>> findAllUsers() {
