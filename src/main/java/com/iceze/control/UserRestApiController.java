@@ -28,10 +28,13 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping("/api")
 public class UserRestApiController {
 	public static final Logger LOG = LoggerFactory.getLogger(UserRestApiController.class);
-	
-	@Autowired
-	@Qualifier("userService")
+
 	private UserService userService;
+
+	@Autowired
+	public UserRestApiController(final @Qualifier("userService") UserService userService) {
+		this.userService = userService;
+	}
 	
 	@ApiOperation(value = "Find all users", notes = "Retrieving the collection of user", response = List.class)
     @ApiResponses({
