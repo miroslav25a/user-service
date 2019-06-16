@@ -32,7 +32,7 @@ public class UserRestApiController {
 	private UserService userService;
 
 	@Autowired
-	public UserRestApiController(final @Qualifier("userService") UserService userService) {
+	public UserRestApiController(@Qualifier("userService") final UserService userService) {
 		this.userService = userService;
 	}
 	
